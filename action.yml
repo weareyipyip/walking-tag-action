@@ -1,0 +1,12 @@
+name: Walking Git tag
+description: Update (or create) a walking Git tag, i.e. a tag that moves to a new commit.
+inputs:
+  tag-name:
+    description: Name of the tag to update
+    required: true
+  tag-message:
+    description: Message of the tag to update
+    required: true
+runs:
+  using: docker
+  image: "Dockerfile"
