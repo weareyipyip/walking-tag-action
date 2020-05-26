@@ -22,7 +22,7 @@ echo "Setting up git machine..."
 git_setup
 
 echo "Forcing tag update..."
-git tag -a ${INPUT_TAG_NAME} -m "${INPUT_TAG_MESSAGE}" "${GITHUB_SHA}" -f
+git tag -a ${1} -m "${2}" "${GITHUB_SHA}" -f
 
 echo "Forcing tag push..."
-git push -f origin refs/tags/${INPUT_TAG_NAME}
+git push -f origin refs/tags/${1}

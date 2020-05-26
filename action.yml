@@ -1,8 +1,8 @@
 name: Walking Git tag
 description: Update (or create) a walking Git tag, i.e. a tag that moves to a new commit.
 branding:
-  icon: 'tag'  
-  color: 'blue'
+  icon: "tag"
+  color: "blue"
 inputs:
   tag-name:
     description: Name of the tag to update
@@ -13,3 +13,6 @@ inputs:
 runs:
   using: docker
   image: "Dockerfile"
+  args:
+    - ${{ inputs.tag-name }}
+    - ${{ inputs.tag-message }}
