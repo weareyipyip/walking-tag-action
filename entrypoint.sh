@@ -21,8 +21,10 @@ EOF
 echo "Setting up git machine..."
 git_setup
 
-echo "Forcing tag update..."
-git tag -a ${1} -m "${2}" "${GITHUB_SHA}" -f
+echo "Deleting old tag..."
+git tag -d ${1} || true
+git push origin :refs/tags/${1}
 
-echo "Forcing tag push..."
-git push -f origin refs/tags/${1}
+echo "Creating new tag..."
+git tag -a ${1} -m "${2}" "${GITHUB_SHA}"
+git push origin refs/tags/${1}
